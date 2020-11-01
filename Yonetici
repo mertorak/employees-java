@@ -1,0 +1,24 @@
+
+public class Yonetici extends Calisanlar {
+    
+    private String sorumlu_kisi_sayisi  ;
+
+    public Yonetici(String ad, String soyad, int id,int sorumlu_kisi_sayisi) {
+        super(ad, soyad, id);
+        
+    }
+
+    @Override
+    public void bilgilerigoster() {
+        super.bilgilerigoster(); 
+        System.out.println("Yoneticinin sorumlu oldugu kişi sayisi" + sorumlu_kisi_sayisi);
+    }
+   public void zamyap ( int zammiktari) {
+       
+       System.out.println(getAd() + " calisanlara" + zammiktari + "kadar zam yapiliyor");
+       
+       
+   }
+    
+    
+}
