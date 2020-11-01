@@ -1,0 +1,107 @@
+
+import com.sun.org.apache.bcel.internal.generic.SIPUSH;
+import java.util.Scanner;
+
+
+public class Main {
+    public static void main(String[] args) {
+        
+   
+    Scanner scanner = new Scanner(System.in) ;
+        
+    System.out.println("Calisanlar programina hosgeldiniz");
+        
+        String islemler = ("Islemler \n" +
+                            "1.Yazilimci islemleri \n " + 
+                            "2.Yonetici islemleri \n" +
+                            "Cikis icin q 'ya basin..") ;
+        
+        System.out.println("**************");
+        System.out.println(islemler);
+         System.out.println("**************");
+    
+     
+         while (true) {
+             System.out.println("İslemi seciniz");
+             String islem = scanner.nextLine() ;
+             if (islem.equals("q")){
+                 
+                 System.out.println("Programdan cikiliyor");
+                 break;
+             }
+             else if(islem.equals("1")) {
+                 
+                 Yazilimci yazilimci= new Yazilimci("Mert", "Orak", 14032, "Java,HTML,C") ;
+                 String yazilimci_islem ="1.Format at \n " + "2.Bilgileri goster\n" + "Cikis icin q ya basin" ;
+                 System.out.println(yazilimci_islem);
+                 
+                 while (true) {
+                     System.out.println("Islemi seciniz");
+                     
+                     String y_islem = scanner.nextLine() ;
+                     if (y_islem.equals("q")) {
+                         System.out.println("Yazilimci isleminden cikiliyor");
+                         break;
+                         
+                     }
+                     
+                     else if(y_islem.equals("1")){
+                         
+                         System.out.println("Isletim sistemi :");
+                         String isletim_sistemi = scanner.nextLine();
+                         yazilimci.formatAt(isletim_sistemi);
+                         
+                     }
+                     else if (y_islem.equals("2")) {
+                     
+                     yazilimci.bilgilerigoster();
+                 }
+                     else { 
+                             System.out.println("Gecersiz islem");
+                             
+                           
+                     }
+                     
+                 }
+                 
+             }
+             
+             else if(islem.equals("2")) {
+                 
+                 Yonetici yonetici = new Yonetici("Berk", "Orak", 1320, 12) ;
+                 
+                 String yonetici_islem = ("Yonetici islemler\n" +
+                                           "1.zam yap\n" + "2.Bilgileri goster\n" + "q ya basip cikiniz\n" ) ;
+                 System.out.println(yonetici_islem);
+                 
+                 while (true) { 
+                     System.out.println("Islem seciniz");
+                     String y_islem = scanner.nextLine();
+                     
+                     if(y_islem.equals("q")){
+                         System.out.println("Yonetici islemlerinden cikiliyor");
+                         break;
+                     }
+                     else if (y_islem.equals("1")) {
+                         System.out.print("Ne kadar zam istersiniz");
+                         int zammiktari= scanner.nextInt();
+                         scanner.nextLine() ;
+                         yonetici.zamyap(zammiktari);
+                             
+                     }
+                     else if (y_islem.equals("2")){
+                         
+                         yonetici.bilgilerigoster();
+                     }
+                     else{
+                         System.out.println("Gecersiz islem yaptiniz");
+                     }
+                     
+                 }
+             }
+             else {
+                 System.out.println("Gecersiz islem");
+             }
+        }    
+    } 
+}
